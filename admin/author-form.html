@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Author — Admin — AlgoWire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <header class="admin-header">
+            <div class="admin-header__title">
+                <a href="../index.html" class="navbar__logo">
+                    <span class="navbar__logo-icon">&gt;_</span>
+                    <span class="navbar__logo-text">Algo<span class="navbar__logo-dot">.</span>Wire</span>
+                </a>
+                <span style="color:var(--text-muted);margin-left:8px;">/ Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="articles.html">Articles</a>
+                <a href="categories.html">Categories</a>
+                <a href="authors.html" class="active">Authors</a>
+                <a href="../index.html" target="_blank">View Site</a>
+                <a href="login.html" style="color:var(--accent);" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <div class="admin-content" style="max-width:600px;">
+            <div class="section-header">
+                <h2 class="section-title">New Author</h2>
+                <a href="authors.html" class="btn btn--outlined btn--sm">← Back</a>
+            </div>
+
+            <form id="authorForm" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-xl);">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" name="name" id="name" required placeholder="Author name...">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" name="email" id="email" required placeholder="author@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea name="bio" id="bio" rows="4" placeholder="Short author bio..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avatar URL</label>
+                    <input type="url" name="avatar" id="avatar" placeholder="https://...">
+                </div>
+
+                <div style="display:flex;gap:var(--space-md);margin-top:var(--space-lg);">
+                    <button type="submit" class="btn btn--primary">Create Author</button>
+                    <a href="authors.html" class="btn btn--outlined">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        document.getElementById('authorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✓ Author created successfully! (Static mockup)');
+            window.location.href = 'authors.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories — Admin — AlgoWire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <header class="admin-header">
+            <div class="admin-header__title">
+                <a href="../index.html" class="navbar__logo">
+                    <span class="navbar__logo-icon">&gt;_</span>
+                    <span class="navbar__logo-text">Algo<span class="navbar__logo-dot">.</span>Wire</span>
+                </a>
+                <span style="color:var(--text-muted);margin-left:8px;">/ Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="articles.html">Articles</a>
+                <a href="categories.html">Categories</a>
+                <a href="authors.html">Authors</a>
+                <a href="../index.html" target="_blank">View Site</a>
+                <a href="login.html" style="color:var(--accent);" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <div class="admin-content" style="max-width:700px;">
+            <div class="section-header">
+                <h2 class="section-title">Categories</h2>
+            </div>
+
+            <!-- Add Category Form -->
+            <form id="addCategoryForm" style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xl);">
+                <input type="text" name="name" id="catName" required placeholder="New category name..." style="flex:1;padding:10px 16px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);font-family:var(--font-primary);font-size:14px;">
+                <button type="submit" class="btn btn--primary">Add Category</button>
+            </form>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Slug</th>
+                        <th>Articles</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="categoriesBody">
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Artificial Intelligence</strong></td>
+                        <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">artificial-intelligence</td>
+                        <td>12</td>
+                        <td><a href="#" class="btn btn--sm btn--delete" style="color:var(--accent);">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">DevOps</strong></td>
+                        <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">devops</td>
+                        <td>4</td>
+                        <td><a href="#" class="btn btn--sm btn--delete" style="color:var(--accent);">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Quantum Computing</strong></td>
+                        <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">quantum-computing</td>
+                        <td>5</td>
+                        <td><a href="#" class="btn btn--sm btn--delete" style="color:var(--accent);">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Web3 & Decentralization</strong></td>
+                        <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">web3-decentralization</td>
+                        <td>7</td>
+                        <td><a href="#" class="btn btn--sm btn--delete" style="color:var(--accent);">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Machine Learning</strong></td>
+                        <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">machine-learning</td>
+                        <td>3</td>
+                        <td><a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this category?')">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        // Static mockup: add category to table
+        document.getElementById('addCategoryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('catName').value.trim();
+            if (!name) return;
+            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><strong style="color:var(--text-primary);">${name}</strong></td>
+                <td style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">${slug}</td>
+                <td>0</td>
+                <td><a href="#" class="btn btn--sm btn--delete" style="color:var(--accent);">Delete</a></td>
+            `;
+            document.getElementById('categoriesBody').appendChild(row);
+            
+            // Re-bind delete confirmation for new row
+            const newDeleteBtn = row.querySelector('.btn--delete');
+            newDeleteBtn.addEventListener('click', (e) => {
+                if (confirm('Are you sure you want to delete this category?')) {
+                    row.remove();
+                }
+            });
+
+            document.getElementById('catName').value = '';
+        });
+    </script>
+</body>
+</html>

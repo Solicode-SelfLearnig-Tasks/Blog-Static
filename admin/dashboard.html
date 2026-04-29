@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Admin — AlgoWire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="admin-header__title">
+                <a href="../index.html" class="navbar__logo">
+                    <span class="navbar__logo-icon">&gt;_</span>
+                    <span class="navbar__logo-text">Algo<span class="navbar__logo-dot">.</span>Wire</span>
+                </a>
+                <span style="color:var(--text-muted);margin-left:8px;">/ Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="articles.html">Articles</a>
+                <a href="categories.html">Categories</a>
+                <a href="authors.html">Authors</a>
+                <a href="../index.html" target="_blank">View Site</a>
+                <a href="login.html" style="color:var(--accent);" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <div class="admin-content">
+            <h2 style="margin-bottom:var(--space-lg);">Dashboard</h2>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card__value">24</div>
+                    <div class="stat-card__label">Total Articles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">18</div>
+                    <div class="stat-card__label">Published</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">32.4k</div>
+                    <div class="stat-card__label">Total Views</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">87</div>
+                    <div class="stat-card__label">Comments</div>
+                </div>
+            </div>
+
+            <!-- Recent Articles -->
+            <div class="section-header">
+                <h3 class="section-title">Recent Articles</h3>
+                <a href="article-form.html" class="btn btn--primary btn--sm">+ New Article</a>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Views</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">The Evolution of Generative Neural Networks</strong></td>
+                        <td><span class="tag tag--filled">AI</span></td>
+                        <td><span class="status-badge status-badge--published">published</span></td>
+                        <td>1.2k</td>
+                        <td>2 days ago</td>
+                        <td>
+                            <div class="admin-table__actions">
+                                <a href="article-form.html" class="btn btn--outlined btn--sm">Edit</a>
+                                <a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this article?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Automating CI/CD Pipelines with GitHub Actions</strong></td>
+                        <td><span class="tag tag--filled">DevOps</span></td>
+                        <td><span class="status-badge status-badge--published">published</span></td>
+                        <td>940</td>
+                        <td>5 days ago</td>
+                        <td>
+                            <div class="admin-table__actions">
+                                <a href="article-form.html" class="btn btn--outlined btn--sm">Edit</a>
+                                <a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this article?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Exploring Quantum Algorithms for Optimization</strong></td>
+                        <td><span class="tag tag--filled">Quantum</span></td>
+                        <td><span class="status-badge status-badge--published">published</span></td>
+                        <td>780</td>
+                        <td>1 week ago</td>
+                        <td>
+                            <div class="admin-table__actions">
+                                <a href="article-form.html" class="btn btn--outlined btn--sm">Edit</a>
+                                <a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this article?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">ML Predictions in Production Systems</strong></td>
+                        <td><span class="tag tag--filled">Machine Learning</span></td>
+                        <td><span class="status-badge status-badge--draft">draft</span></td>
+                        <td>0</td>
+                        <td>1 week ago</td>
+                        <td>
+                            <div class="admin-table__actions">
+                                <a href="article-form.html" class="btn btn--outlined btn--sm">Edit</a>
+                                <a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this article?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:var(--text-primary);">Building Decentralized Apps with Web3.js</strong></td>
+                        <td><span class="tag tag--filled">Web3</span></td>
+                        <td><span class="status-badge status-badge--published">published</span></td>
+                        <td>560</td>
+                        <td>2 weeks ago</td>
+                        <td>
+                            <div class="admin-table__actions">
+                                <a href="article-form.html" class="btn btn--outlined btn--sm">Edit</a>
+                                <a href="#" class="btn btn--sm" style="color:var(--accent);" onclick="return confirm('Delete this article?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
